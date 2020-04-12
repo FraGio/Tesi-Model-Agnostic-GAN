@@ -281,7 +281,7 @@ class WGAN():
 					gen_solutions = self.generator_full.predict(gen_samples)
 
 					# Train the Critic on valid and fake data
-					d_loss_glob = self.critic_model.train_on_batch([feas_solutions, unfeas_solutions], [valid, fake, dummy])
+					d_loss_glob = self.critic_model.train_on_batch([feas_solutions, gen_solutions], [valid, fake, dummy])
 
 					d_loss_real_tot += d_loss_glob[0]
 					d_loss_fake_tot += d_loss_glob[1]
